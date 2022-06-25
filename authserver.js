@@ -35,16 +35,16 @@ app.get('/', async(req, res) => {
 
 
 app.post('/register', async(req, res) => {
-	const { email, password } = req.body;
+	const { username, number } = req.body;
 	
 	try {
 		const user = fakeDB.find(usr => usr.email == email);
 		if(user) throw new Error('User already exists');
-		const hashedPassword = await hash(password, 10);
+		const hashedPassword = await hash(number, 10);
 		fakeDB.push({
 			id: fakeDB.length,
-			email,
-			password: hashedPassword,
+			username,
+			number: hashedPassword,
 		})
 		console.log(fakeDB)
 		res.send({ message: 'User Created' })
