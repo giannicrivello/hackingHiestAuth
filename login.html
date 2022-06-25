@@ -17,7 +17,7 @@
         const btnLogin = document.getElementById("btnLogin");
         const btnRegister = document.getElementById("btnRegister");
         const txtUsername = document.getElementById("txtUsername");
-        const txtPassword = document.getElementById("number");
+        const number = document.getElementById("number");
         const cmbRole = document.getElementById("cmbRole");
         
         btnLogin.addEventListener("click", async () => {
@@ -31,7 +31,7 @@
         })
 
         btnRegister.addEventListener("click", async () => {
-            const result = await fetch("/register", {"method": "POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify({"user": txtUsername.value, "password": txtPassword.value, "role": cmbRole.options[cmbRole.selectedIndex].value  })})
+            const result = await fetch("/register", {"method": "POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify({"user": txtUsername.value, "password": number.value, "role": cmbRole.options[cmbRole.selectedIndex].value  })})
             const jResult = await result.json();
             alert(JSON.stringify(jResult))
         })
