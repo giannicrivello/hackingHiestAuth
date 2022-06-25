@@ -8,7 +8,7 @@
 <body>
     <h1>JWT Based Tutorial</h1>
     UserName<input type = 'text' id = 'txtUsername'>
-    Number <input type = 'text' id = 'number'>
+    Number <input type = 'number' id = 'number'>
     Role <select id = 'cmbRole'><option value = 'admin'>Admin</option><option value = 'username'>User</option></select>
     <button id = 'btnLogin'>Login</button>
     <button id = 'btnRegister'>Register</button>
@@ -21,7 +21,7 @@
         const cmbRole = document.getElementById("cmbRole");
         
         btnLogin.addEventListener("click", async () => {
-            const result = await fetch("/login", {"method": "POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify({"usernamename": txtUsername.value, "number": number.value})})
+            const result = await fetch("/login", {"method": "POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify({"username": txtUsername.value, "number": number.value})})
             const jResult = await result.json();
             alert(JSON.stringify(jResult))
 

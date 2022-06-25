@@ -38,7 +38,7 @@ app.post('/register', async(req, res) => {
 	const { username, number } = req.body;
 	
 	try {
-		const user = fakeDB.find(usr => usr.email == email);
+		const user = fakeDB.find(usr => usr.username == username);
 		if(user) throw new Error('User already exists');
 		const hashedPassword = await hash(number, 10);
 		fakeDB.push({
