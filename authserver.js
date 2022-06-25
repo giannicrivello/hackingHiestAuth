@@ -13,7 +13,7 @@ const JWT_SECRET = "{8367E87C-B794-4A04-89DD-15FE7FDBFF78}"
 const _dirname = dirname(fileURLToPath(import.meta.url));
 //bad idea
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 const app = new Express();
 app.use(Express.json());
 app.use(cookieParser());
@@ -96,15 +96,6 @@ app.post('/protected', async(req, res) => {
 	}
 
 })
-
-
-
-
-
-
-
-
-
 
 app.listen(port, () => {
 	console.log(`listening on port ${port}`)
