@@ -53,12 +53,12 @@ app.post('/register', async(req, res) => {
 	}
 })
 app.post('/login', async( req, res) => {
-	const { email, password } = req.body;
+	const { username, number } = req.body;
 
 	try {
-		const user = fakeDB.find(usr => usr.email === email);
+		const user = fakeDB.find(usr => usr.username === username);
 		if(!user) throw new Error("user does not exist");
-		const valid = await compare(password, user.password)
+		const valid = await compare(number, user.number)
 		if(!valid) throw new Error("Password not correct");
 		const accessToken = createAccessToken(user.id); 
 		const refreshToken = createRefreshToken(user.id);
